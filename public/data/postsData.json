@@ -6,7 +6,7 @@
     "title": "Volkswagen Beetle is Cute",
     "text": "It was in 1948 that Wilhelm Karmann first bought a VW Beetle sedan and converted it into a four-seated convertible. After successfully presenting it at VW in Wolfsburg the Beetle Cabriolet began production in 1949 by Karmann in Osnabrück.",
     "bigText": "The convertible was more than a Beetle with a folding top. To compensate for the strength lost in removing the roof, the sills were reinforced with welded U-channel rails, a transverse beam was fitted below the front edge of the rear seat cushion, and the side cowl-panels below the instrument panel were double-wall. In addition, the lower corners of the door apertures had welded-in curved gussets, and the doors had secondary alignment wedges at the B-pillar.The top was cabriolet-style with a full inner headliner hiding the folding mechanism and crossbars. In between the two top layers was 1 in (25 mm) of insulation. The rear window was tempered safety glass, and after 1968, heated. Due to the thickness of the top, it remained quite tall when folded. To enable the driver to see over the lowered top, the inside rearview was mounted on an offset pivot. By twisting the mirror 180 degrees on a longitudinal axis, the mirror glass would raise approximately 2 in (5.1 cm).",
-    "dateAll": "March 9 2019"
+    "date": "March 9 2019"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "title": "Cost of running an electric car",
     "text": "More powerful, better equipped and with a bigger range than its predecessor, a second-generation of electric cars are showing just how much electric technology has advanced.",
     "bigText": "This year, the latest Nissan Leaf and updated versions of the Renault Zoe and BMW i3 are being joined by a wave of new models. These include the Jaguar I-Pace, Tesla Model 3 and Audi e-tron, with dozens more electric cars in the pipeline, all promising clean motoring and the end to expensive fuel station stops. The government has just cut its electric car grant but it still provides a £3,500 subsidy towards the cost of a new car. Manufacturers predict a boom in electric car sales, helped along by rising fuel prices and emission charges - especially for diesel drivers. By 2040, the government has pledged to ban sales of new petrol, diesel and many hybrid cars. Source https://www.buyacar.co.uk",
-    "dateAll": "March 20 2019"
+    "date": "March 20 2019"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "title": "Navigation for Car",
     "text": "An automotive navigation system is part of the automobile controls or a third party add-on used to find direction in an automobile. It typically uses a satellite navigation device to get its position data which is then correlated to a position on a road. When directions are needed routing can be calculated. On the fly traffic information can be used to adjust the route.",
     "bigText": "Dead reckoning using distance data from sensors attached to the drivetrain, a gyroscope and an accelerometer can be used for greater reliability, as GPS signal loss and/or multipath can occur due to urban canyons or tunnels. Mathematically, automotive navigation is based on the shortest path problem, within graph theory, which examines how to identify the path that best meets some criteria (shortest, cheapest, fastest, etc.) between two points in a large network.",
-    "dateAll": "April 2 2019"
+    "date": "April 2 2019"
   }
 ]
 

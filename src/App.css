@@ -20,6 +20,15 @@
     position: absolute;
     background-color: rgba(229, 229, 229, 0.3);
 }
+.head .scrollNav {
+    background: #ffffff;
+    opacity: 0.92;
+    transition: all 0.5s ease;
+    border-bottom: 1px solid rgba(200, 200, 200, 0.8);
+    /*.nav-bar li, .nav-bar li a {*/
+    /*color: #555;*/
+    /*}*/
+}
 .logo img {
     width: 40px;
     border: 0;
@@ -52,7 +61,7 @@
     height: 2.4375rem;
 
 }
-.add_author, .add_title, .add_text {
+.add_author, .add_title, .add_text, .add_url {
     width: 100%;
     display: block;
     box-sizing: border-box;
@@ -120,14 +129,22 @@
     width: 60%;
 }
 .article {
-
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 0 10px 10px 10px;
+    -webkit-box-shadow: 0 4px 6px -6px #222;
+    -moz-box-shadow: 0 4px 6px -6px #222;
+    box-shadow: 0 4px 6px -6px #222;
 }
 
 .post_title {
+    padding-bottom: 5px;
     color: #666;
-    font-size: 25px;
+    font-size: 20px;
 }
-.post_date {
+.post_date, .post_author {
     float: right;
 }
 .post_img {
@@ -142,4 +159,12 @@
     text-align: justify;
     font-family: inherit;
     font-size: 0.7rem;
+}
+.post_read_more {
+    font-size: 12px;
+    color: mediumpurple;
+}
+.post_author {
+    color: #666;
+    font-size: 16px;
 }

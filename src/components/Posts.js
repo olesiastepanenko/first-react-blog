@@ -28,11 +28,8 @@ class Posts extends React.Component {
         return (
             <div className="post">
                 {this.renderPost()}
-
-                <strong onClick={this.handleCounter} className={'post_count'}>
-                    Post articles: {data.length}</strong> : null
-                data.length ? <strong>
-                Post articles: {data.length}</strong> : null
+                <p onClick={this.handleCounter} className={data.length > 0 ? '':"none"}>
+                Post articles: {data.length}</p>
             </div>
         )
     }

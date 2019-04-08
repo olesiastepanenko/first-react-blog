@@ -15,21 +15,23 @@ class Article extends React.Component {
     // const {pimg} = this.props;
     // };
     render() {
-        const {author, title, text, bigText, src, dateAll} = this.props.data;
+        const {author, title, text, bigText, src, date} = this.props.data;
         const {visible} = this.state;
         return (
             <div className="article">
-                <div className="post_title"><span>{title}</span><span className="post_date">{dateAll}</span></div>
+                <div className="post_title"><span>{title}</span><span className="post_date">{date}</span></div>
                 <img className="post_img" src={src} alt={title}/>
-                <p className="post_text">{text}</p>
-                {/* если не visible то показывай */
-                    !visible &&
-                    <a onClick={this.handleReadMoreClck} href="#Read more" className="post_read-more">Read more</a>
-                }
-                {/* если visible than show */
-                    visible && <p className="post_big-text">{bigText}</p>
-                }
-                <p className="post_author">{author}:</p>
+                    <p className="post_text">{text}</p>
+                    {/* если не visible то показывай */
+                        !visible &&
+                        <a onClick={this.handleReadMoreClck} href="#Read more" className="post_read_more">Read more</a>
+                    }
+                    {/* если visible than show */
+                        visible && <p className="post_big-text">{bigText}</p>
+                    }
+                <div className="post_info">
+                <span className="post_author"> Posted by: {author}</span>
+                </div>
             </div>
         )
     }

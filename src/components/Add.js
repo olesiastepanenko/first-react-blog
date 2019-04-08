@@ -2,15 +2,16 @@ import React from 'react';
 import PropTypes from "prop-types";
 // import './App.css';
 
-function getTime() {
+function getTime(d) {
     var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    var d = new Date();
-    var mon = month[d.getMonth()];
-    var day = d.getDate();
-    var year = d.getFullYear();
-    var dateAll = mon + " " + day + ", " + year;
-
-    return dateAll;
+    // var d = new Date();
+    // var mon = month[d.getMonth()];
+    // var day = d.getDate();
+    // var year = d.getFullYear();
+    // var dateAll = mon + " " + day + ", " + year;
+    // console.log(day, 'day', d, "d", mon, "mon", year, "year", dateAll, "dateAll")
+    var date = month[d.getMonth()] + ' ' + d.getDate() + ' ' + d.getFullYear();
+    return date;
 }
 
 class Add extends React.Component {
@@ -19,6 +20,7 @@ class Add extends React.Component {
         src: '',
         title: '',
         bigText: '',
+        date: '',
         agree: false,
     };
 
@@ -26,15 +28,16 @@ class Add extends React.Component {
         e.preventDefault();
         const {name, title, bigText, src} = this.state;
         // alert(name + '\n' + title)
-        const {dateAll} = getTime();
-        console.log('clicked');
+        let d = new Date();
+        const date = getTime(d);
+        // console.log('dateAll', date);
         this.props.onAddPost({
-            id: +new Date(), // в id saved onAddPosts time in ms
+            id: +d, // в id saved onAddPosts time in ms
             author: name,
             src,
             title,
             bigText,
-            dateAll,
+            date,
         })
     };
 
@@ -82,6 +85,7 @@ class Add extends React.Component {
                         <span>Post Img</span>
                         <input type="url"
                                id="src"
+                               className="add_url"
                                onChange={this.handleChange}
                                value={src}
                                src={src}

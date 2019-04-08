@@ -43,6 +43,8 @@ import Navbar from "./Navbar";
 //     },
 // ];
 
+
+
 const bannerImg = require('../images/banner.jpg');
 const bannerImgDivStyle = {
     top: '0',
@@ -56,6 +58,7 @@ const bannerImgDivStyle = {
     marginBottom: '50px',
     backgroundImage: `url(${bannerImg})`,
     backgroundSize: 'cover',
+
 };
 
 class Blog extends React.Component {
