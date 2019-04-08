@@ -15,14 +15,18 @@ function getTime(d) {
 }
 
 class Add extends React.Component {
-    state = {
-        name: '',
-        src: '',
-        title: '',
-        bigText: '',
-        date: '',
-        agree: false,
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            src: '',
+            title: '',
+            bigText: '',
+            date: '',
+            agree: false,
+        };
+    }
+
 
     onClickBtnHandler = (e) => {
         e.preventDefault();
@@ -38,7 +42,9 @@ class Add extends React.Component {
             title,
             bigText,
             date,
-        })
+        });
+        this.setState({name: '', title: '', bigText: '', src: ''});
+
     };
 
     handleChange = (e) => {
@@ -56,10 +62,9 @@ class Add extends React.Component {
     };
 
     render() {
-        const {name, title, bigText, src} = this.state;
         return (
             <div className="add">
-                <form className="add-form">
+                <form className="add-form" onSubmit={this.handleSubmit}>
                     <div>
                         <span>Author Name</span>
                         <input
@@ -68,7 +73,7 @@ class Add extends React.Component {
                             onChange={this.handleChange}
                             className="add_author"
                             placeholder="Your Name (is Required)"
-                            value={name}
+                            value={this.state.name}
                         />
                     </div>
                     <div>
@@ -79,7 +84,7 @@ class Add extends React.Component {
                         onChange={this.handleChange}
                         className="add_title"
                         placeholder="Post title (is Required)"
-                        value={title}
+                        value={this.state.title}
                     /></div>
                     <div>
                         <span>Post Img</span>
@@ -87,8 +92,7 @@ class Add extends React.Component {
                                id="src"
                                className="add_url"
                                onChange={this.handleChange}
-                               value={src}
-                               src={src}
+                               value={this.state.src}
                                placeholder="The URL of the featured image for your post"/>
                     </div>
                     <div>
@@ -98,7 +102,7 @@ class Add extends React.Component {
                         onChange={this.handleChange}
                         className="add_text"
                         placeholder="Post Text (is Required)"
-                        value={bigText}
+                        value={this.state.bigText}
                     /></div>
                     <label className="add_terms_and_cond">
                         <input type="checkbox"

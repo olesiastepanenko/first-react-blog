@@ -43,7 +43,21 @@ import Navbar from "./Navbar";
 //     },
 // ];
 
-
+// window.onscroll = function(e) {
+//     var nav = document.getElementById("navigation"),
+//         banner = document.getElementsByClassName("back-img")[0],
+//         range = 70,
+//         scrollTop = nav.scrollTop;
+//     console.log('scrolled', scrollTop);
+//     if (scrollTop > range) {
+//         nav.classList.add("scrollNav");
+//         banner.classList.add("blurred");
+//     }
+//     else if (scrollTop < range) {
+//         nav.classList.remove("scrollNav");
+//         banner.classList.remove("blurred");
+//     }
+// };
 
 const bannerImg = require('../images/banner.jpg');
 const bannerImgDivStyle = {
