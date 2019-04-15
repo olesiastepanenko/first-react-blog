@@ -126,10 +126,8 @@ class Blog extends React.Component {
 
     handleAddPost = (data) => {
         const nextPost = [data, ...this.state.post];
-        console.log('handle ADD');
         this.setState({post: nextPost});
-        console.log(this.state);
-        console.log(nextPost, 'nextPost')
+        console.log(nextPost, "nextPost");
     };
 
 

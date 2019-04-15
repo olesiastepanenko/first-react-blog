@@ -1,4 +1,5 @@
 import React from 'react';
+import Scroll from 'react-scroll'
 import PropTypes from "prop-types";
 // import './App.css';
 
@@ -15,6 +16,8 @@ class Add extends React.Component {
             name: '',
             src: '',
             title: '',
+            text: '',
+            fullText: '',
             bigText: '',
             date: '',
             agree: false,
@@ -24,8 +27,8 @@ class Add extends React.Component {
 
     onClickBtnHandler = (e) => {
         e.preventDefault();
-        const {name, title, bigText, src} = this.state;
-        // alert(name + '\n' + title)
+        const {name, title, text, bigText, src} = this.state;
+
         let d = new Date();
         const date = getTime(d);
         // console.log('dateAll', date);
@@ -34,17 +37,34 @@ class Add extends React.Component {
             author: name,
             src,
             title,
+            text,
             bigText,
             date,
         });
         // clear input in addFrom
-        this.setState({name: '', title: '', bigText: '', src: ''});
+        this.setState({name: '', title: '', fullText: '', src: ''});
+        // Scroll to Post after add new Post
+        Scroll.animateScroll.scrollTo(300);
 
     };
 
     handleChange = (e) => {
+        e.preventDefault();
         const {id, value} = e.currentTarget;
-        this.setState({[id]: value})
+        if (id === "bigText") {
+            this.setState({fullText: value});
+            // it looking in str between 300 and 350 for ". "
+            // and than split it for text and bigText
+            let tempSlice = value.slice(300, 350);
+            let index = tempSlice.indexOf(". ") + 301;
+            let textSlice = value.slice(0, index);
+            let bigTextRest = value.slice(index + 1, );
+            this.setState({text: textSlice});
+            this.setState({bigText: bigTextRest})
+        } else {
+            this.setState({[id]: value})
+        }
+
     };
 
     handleCheckboxChange = (e) => {
@@ -97,7 +117,7 @@ class Add extends React.Component {
                         onChange={this.handleChange}
                         className="add_text"
                         placeholder="Post Text (is Required)"
-                        value={this.state.bigText}
+                        value={this.state.fullText}
                     /></div>
                     <label className="add_terms_and_cond">
                         <input type="checkbox"
