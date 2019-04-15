@@ -105,19 +105,37 @@ div.active div.back-img {
 
 }
 
-
-.App {
+/*   -- Back to top button  --   */
+.top_button{
+    display: none;
 }
-
-.App-logo {
+.top_button.top {
+    display: block;
+    position: fixed;
+    top: 90vh;
+    right: 20px;
+    z-index: 10;
+    /*width: 100px;*/
+    /*height: 30px;*/
+    background-color: #666666;
+    opacity: 0.9;
+    cursor: pointer;
+    box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
+    border-radius: 4px;
+    /*transition: box-shadow 0.5s,border-color .25s ease-in-out;*/
+    transition: 0.8s all ease;
+    -webkit-appearance: none;
+}
+.top a {
+    padding: 15px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
 
 }
-
-.App-header {
-
-}
-
-.App-link {
+.top span {
+    font-size: 0.8em;
+    font-weight: 800;
 }
 
 @keyframes App-logo-spin {

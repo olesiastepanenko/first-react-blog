@@ -2,6 +2,7 @@ import React from 'react';
 import {Add} from "./Add";
 import {Posts} from "./Posts";
 import Navbar from "./Navbar";
+import BackToTop from "./BackToTop";
 
 // import postsData from '../public/data/postsData.json'
 
@@ -65,16 +66,25 @@ class Blog extends React.Component {
         post: null,
         isLoading: false, // preloader
         active: false, // if scrolled more than 100px
+        toTop: "",
     };
     addActiveClass = () => {
         this.setState({active:true})
     };
+    addToTopClass = () => {
+        this.setState({toTop: "top"})
+    };
     toggleScroll= (event) => {
         // console.log('scrolled', window.scrollY);
         if (window.scrollY > 100) {
-            this.addActiveClass()
+            this.addActiveClass();
+            if (window.scrollY > 600) {
+                this.addToTopClass();
+            } else {
+                this.setState({toTop:""})
+            }
         } else {
-            this.setState({active:false})
+            this.setState({active:false, toTop:""})
         }
     };
 
@@ -132,6 +142,7 @@ class Blog extends React.Component {
                 {isLoading && <p>Loading ...</p>}
                 {Array.isArray(post) && <Posts data={post}/>}
                 <Add onAddPost={this.handleAddPost}/>
+                <BackToTop className={this.state.toTop}/>
             </div>
         )
     }
