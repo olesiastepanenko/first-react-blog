@@ -4,12 +4,6 @@ import PropTypes from "prop-types";
 
 function getTime(d) {
     var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    // var d = new Date();
-    // var mon = month[d.getMonth()];
-    // var day = d.getDate();
-    // var year = d.getFullYear();
-    // var dateAll = mon + " " + day + ", " + year;
-    // console.log(day, 'day', d, "d", mon, "mon", year, "year", dateAll, "dateAll")
     var date = month[d.getMonth()] + ' ' + d.getDate() + ' ' + d.getFullYear();
     return date;
 }
@@ -43,6 +37,7 @@ class Add extends React.Component {
             bigText,
             date,
         });
+        // clear input in addFrom
         this.setState({name: '', title: '', bigText: '', src: ''});
 
     };

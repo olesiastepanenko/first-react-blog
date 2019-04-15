@@ -43,22 +43,6 @@ import Navbar from "./Navbar";
 //     },
 // ];
 
-// window.onscroll = function(e) {
-//     var nav = document.getElementById("navigation"),
-//         banner = document.getElementsByClassName("back-img")[0],
-//         range = 70,
-//         scrollTop = nav.scrollTop;
-//     console.log('scrolled', scrollTop);
-//     if (scrollTop > range) {
-//         nav.classList.add("scrollNav");
-//         banner.classList.add("blurred");
-//     }
-//     else if (scrollTop < range) {
-//         nav.classList.remove("scrollNav");
-//         banner.classList.remove("blurred");
-//     }
-// };
-
 const bannerImg = require('../images/banner.jpg');
 const bannerImgDivStyle = {
     top: '0',
@@ -72,6 +56,7 @@ const bannerImgDivStyle = {
     marginBottom: '50px',
     backgroundImage: `url(${bannerImg})`,
     backgroundSize: 'cover',
+    transition: '0.5s ease all',
 
 };
 
@@ -79,6 +64,18 @@ class Blog extends React.Component {
     state = {
         post: null,
         isLoading: false, // preloader
+        active: false, // if scrolled more than 100px
+    };
+    addActiveClass = () => {
+        this.setState({active:true})
+    };
+    toggleScroll= (event) => {
+        // console.log('scrolled', window.scrollY);
+        if (window.scrollY > 100) {
+            this.addActiveClass()
+        } else {
+            this.setState({active:false})
+        }
     };
 
     static getDerivedStateFromProps(props, state) {
@@ -101,6 +98,7 @@ class Blog extends React.Component {
 
     componentDidMount() {
         // до fetch делаем isLoading: true, а после назад false
+        window.addEventListener('scroll', this.toggleScroll);
         this.setState({isLoading: true});
         fetch('http://localhost:3000/data/postsData.json ')
             .then(response => {
@@ -128,7 +126,7 @@ class Blog extends React.Component {
     render() {
         const {post, isLoading} = this.state;
         return (
-            <div>
+            <div className={this.state.active ? "active" : ""}>
                 <div className="back-img" style={bannerImgDivStyle}/>
                 <Navbar/>
                 {isLoading && <p>Loading ...</p>}

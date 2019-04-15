@@ -23,12 +23,12 @@ class Posts extends React.Component {
     };
 
     render() {
-        // // спам
+        // // spam
         const {data} = this.props;
         return (
             <div className="post">
                 {this.renderPost()}
-                <p onClick={this.handleCounter} className={data.length > 0 ? '':"none"}>
+                <p className={data.length > 0 ? '':"none"}>
                 Post articles: {data.length}</p>
             </div>
         )

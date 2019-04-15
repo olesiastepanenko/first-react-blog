@@ -1,13 +1,14 @@
 import React from 'react';
 import logo from '../images/logo.svg'
 
-
+// const navStyles = {
+//     backgroundColor: 'transparent',
+// };
 
 class Navbar extends React.Component{
-
     render() {
         return(
-            <div className="head" id="navigation">
+            <div className="head" id="navigation" >
                 <div className="logo">
                     <img src={logo} alt="logo"/>
                 </div>

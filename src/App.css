@@ -9,6 +9,7 @@
     height: 40px;
     margin: 0;
     z-index: 5;
+    transition: 0.5s ease all;
     background-color: transparent;
 
 }
@@ -20,15 +21,6 @@
     position: absolute;
     background-color: rgba(229, 229, 229, 0.3);
 }
-.head .scrollNav {
-    background: #ffffff;
-    opacity: 0.92;
-    transition: all 0.5s ease;
-    border-bottom: 1px solid rgba(200, 200, 200, 0.8);
-    /*.nav-bar li, .nav-bar li a {*/
-    /*color: #555;*/
-    /*}*/
-}
 .logo img {
     width: 40px;
     border: 0;
@@ -39,6 +31,21 @@
     padding: 0 5px;
     color: white;
     cursor: pointer;
+}
+div.active div#navigation.head {
+    background: #ffffff;
+    opacity: 0.92;
+    transition: all 0.5s ease;
+    border-bottom: 1px solid rgba(200, 200, 200, 0.8);
+}
+div.active div#navigation.head li {
+    color: #555;
+}
+
+
+div.active div.back-img {
+    filter: blur(2px);
+    transition: 0.5s ease all;
 }
 
 /*   --  Add new post --   */
