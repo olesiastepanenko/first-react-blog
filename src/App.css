@@ -29,8 +29,11 @@
 .nav-bar li{
     display: table-cell;
     padding: 0 5px;
-    color: white;
     cursor: pointer;
+}
+.nav-bar li a {
+    color: white;
+    text-decoration: none;
 }
 div.active div#navigation.head {
     background: #ffffff;
@@ -38,7 +41,7 @@ div.active div#navigation.head {
     transition: all 0.5s ease;
     border-bottom: 1px solid rgba(200, 200, 200, 0.8);
 }
-div.active div#navigation.head li {
+div.active div#navigation.head a {
     color: #555;
 }
 
@@ -46,6 +49,10 @@ div.active div#navigation.head li {
 div.active div.back-img {
     filter: blur(2px);
     transition: 0.5s ease all;
+}
+.preloader {
+    z-index: 100;
+    margin: auto;
 }
 
 /*   --  Add new post --   */
@@ -102,7 +109,10 @@ div.active div.back-img {
     text-align: center;
     transition: 0.3s all ease;
     cursor: pointer;
-
+}
+.add_btn:disabled {
+    background: #CCC;
+    color: #999;
 }
 
 /*   -- Back to top button  --   */

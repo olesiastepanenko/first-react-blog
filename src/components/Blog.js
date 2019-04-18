@@ -1,8 +1,6 @@
 import React from 'react';
 import {Add} from "./Add";
 import {Posts} from "./Posts";
-import Navbar from "./Navbar";
-import BackToTop from "./BackToTop";
 
 // import postsData from '../public/data/postsData.json'
 
@@ -65,27 +63,6 @@ class Blog extends React.Component {
     state = {
         post: null,
         isLoading: false, // preloader
-        active: false, // if scrolled more than 100px
-        toTop: "",
-    };
-    addActiveClass = () => {
-        this.setState({active:true})
-    };
-    addToTopClass = () => {
-        this.setState({toTop: "top"})
-    };
-    toggleScroll= (event) => {
-        // console.log('scrolled', window.scrollY);
-        if (window.scrollY > 100) {
-            this.addActiveClass();
-            if (window.scrollY > 600) {
-                this.addToTopClass();
-            } else {
-                this.setState({toTop:""})
-            }
-        } else {
-            this.setState({active:false, toTop:""})
-        }
     };
 
     static getDerivedStateFromProps(props, state) {
@@ -105,22 +82,32 @@ class Blog extends React.Component {
         }
         return null
     }
+    showPosts = async () => {
+            // до fetch делаем isLoading: true, а после назад false
+            this.setState({isLoading: true});
+            fetch('http://localhost:3000/data/postsData.json ')
+                .then(response => {
+                    return response.json()
+                })
+                .catch((error) => {
+                    console.error(error);
+                })
+                .then(data => {
+                    // Делаем  Timeout чтобы посмотреть как работает прелоад
+                    setTimeout(() => {
+                        this.setState({isLoading: false, post: data})
+                    }, 300)
 
-    componentDidMount() {
-        // до fetch делаем isLoading: true, а после назад false
-        window.addEventListener('scroll', this.toggleScroll);
-        this.setState({isLoading: true});
-        fetch('http://localhost:3000/data/postsData.json ')
-            .then(response => {
-                return response.json()
-            })
-            .then(data => {
-                // Делаем  Timeout чтобы посмотреть как работает прелоад
-                setTimeout(() => {
-                    this.setState({isLoading: false, post: data})
-                }, 3000)
 
-            })
+                })
+    };
+
+    async componentDidMount () {
+        this._isMounted = true;
+        await this.showPosts();
+    }
+    componentWillUnmount () {
+        this._isMounted = false;
     }
 
 
@@ -134,14 +121,12 @@ class Blog extends React.Component {
     render() {
         const {post, isLoading} = this.state;
         return (
-            <div className={this.state.active ? "active" : ""}>
+            <React.Fragment>
                 <div className="back-img" style={bannerImgDivStyle}/>
-                <Navbar/>
-                {isLoading && <p>Loading ...</p>}
+                {isLoading && <p className="preloader">Loading ...</p>}
                 {Array.isArray(post) && <Posts data={post}/>}
                 <Add onAddPost={this.handleAddPost}/>
-                <BackToTop className={this.state.toTop}/>
-            </div>
+            </React.Fragment>
         )
     }
 

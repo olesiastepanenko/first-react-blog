@@ -3,10 +3,6 @@ import Scroll from 'react-scroll'
 
 
 class BackToTop extends React.Component{
-    // constructor(props) {
-    //     super(props);
-    //     this.scrollToTop = this.scrollToTop.bind(this);
-    // }
     scrollToTop= () => {
         Scroll.animateScroll.scrollToTop();
     };
@@ -14,7 +10,7 @@ class BackToTop extends React.Component{
 
         return (
             <div className={`top_button ${this.props.className}`}>
-                <a href="#" onClick={this.scrollToTop}> To top<span className="lnr lnr-arrow-up"></span></a>
+                <a href="#" onClick={this.scrollToTop}> To top<span className="lnr lnr-arrow-up"/></a>
             </div>
         )
     }
