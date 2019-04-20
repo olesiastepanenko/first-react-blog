@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 
 
-class Article extends React.Component {
+class Post extends React.Component {
     state = {
         visible: false,
     };
@@ -34,7 +34,7 @@ class Article extends React.Component {
         )
     }
 }
-Article.propTypes = {
+Post.propTypes = {
     data: PropTypes.shape({
         id: PropTypes.number.isRequired,
         author: PropTypes.string.isRequired,
@@ -46,4 +46,4 @@ Article.propTypes = {
 };
 
 
-export {Article}
+export {Post}

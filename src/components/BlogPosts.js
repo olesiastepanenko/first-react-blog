@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Article} from "./Article";
+import {Post} from "./Post";
 
 
-class Posts extends React.Component {
+class BlogPosts extends React.Component {
 
 
     renderPost = () => {
@@ -13,7 +13,7 @@ class Posts extends React.Component {
         if (data.length) {//if is Published -  map
 
                 postTemplate = data.map(function (item) {
-                    return <Article key={item.id} data={item} pimg={item.src}/>
+                    return <Post key={item.id} data={item} pimg={item.src}/>
                 })
             // }
         } else {
@@ -35,8 +35,8 @@ class Posts extends React.Component {
     }
 }
 
-Posts.propTypes = {
+BlogPosts.propTypes = {
     data: PropTypes.array.isRequired
 };
 
-export {Posts}
+export {BlogPosts}

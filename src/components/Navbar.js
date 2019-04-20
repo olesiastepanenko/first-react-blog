@@ -9,7 +9,7 @@ import Login from './Login'
 function NavRouter() {
     return (
         <Router>
-            <div>
+            <React.Fragment>
                 <div className="head" id="navigation">
                     <div className="logo">
                         <Link to="/">
@@ -35,7 +35,7 @@ function NavRouter() {
                     <Route exact path="/login" component={Login}/>
                     <Route exact component={Notfound}/>
                 </Switch>
-            </div>
+            </React.Fragment>
         </Router>
     )
 }
@@ -48,7 +48,7 @@ function NavRouter() {
 //                     <img src={logo} alt="logo"/>
 //                 </div>
 //                 <ul className="nav-bar">
-//                     <li>Posts</li>
+//                     <li>BlogPosts</li>
 //                     <li>News</li>
 //                     <li>Login</li>
 //                 </ul>

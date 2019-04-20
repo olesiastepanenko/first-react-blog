@@ -1,6 +1,6 @@
 import React from 'react';
 import {Add} from "./Add";
-import {Posts} from "./Posts";
+import {BlogPosts} from "./BlogPosts";
 
 // import postsData from '../public/data/postsData.json'
 
@@ -82,31 +82,33 @@ class Blog extends React.Component {
         }
         return null
     }
+
     showPosts = async () => {
-            // до fetch делаем isLoading: true, а после назад false
-            this.setState({isLoading: true});
-            fetch('http://localhost:3000/data/postsData.json ')
-                .then(response => {
-                    return response.json()
-                })
-                .catch((error) => {
-                    console.error(error);
-                })
-                .then(data => {
-                    // Делаем  Timeout чтобы посмотреть как работает прелоад
-                    setTimeout(() => {
-                        this.setState({isLoading: false, post: data})
-                    }, 300)
+        // до fetch делаем isLoading: true, а после назад false
+        this.setState({isLoading: true});
+        fetch('http://localhost:3000/data/postsData.json ')
+            .then(response => {
+                return response.json()
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+            .then(data => {
+                // Делаем  Timeout чтобы посмотреть как работает прелоад
+                setTimeout(() => {
+                    this.setState({isLoading: false, post: data})
+                }, 300)
 
 
-                })
+            })
     };
 
-    async componentDidMount () {
+    async componentDidMount() {
         this._isMounted = true;
         await this.showPosts();
     }
-    componentWillUnmount () {
+
+    componentWillUnmount() {
         this._isMounted = false;
     }
 
@@ -121,11 +123,14 @@ class Blog extends React.Component {
     render() {
         const {post, isLoading} = this.state;
         return (
+
             <React.Fragment>
                 <div className="back-img" style={bannerImgDivStyle}/>
-                {isLoading && <p className="preloader">Loading ...</p>}
-                {Array.isArray(post) && <Posts data={post}/>}
-                <Add onAddPost={this.handleAddPost}/>
+                <div className="content-wrapper">
+                    {isLoading && <p className="preloader">Loading ...</p>}
+                    {Array.isArray(post) && <BlogPosts data={post}/>}
+                    <Add onAddPost={this.handleAddPost}/>
+                </div>
             </React.Fragment>
         )
     }
