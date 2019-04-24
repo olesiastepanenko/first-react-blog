@@ -94,13 +94,13 @@ class Add extends React.Component {
                     <div>
                         <span>Post title</span>
                         <input
-                            type="text"
-                            id="title"
-                            onChange={this.handleChange}
-                            className="add_title"
-                            placeholder="Post title (is Required)"
-                            value={this.state.title}
-                        /></div>
+                        type="text"
+                        id="title"
+                        onChange={this.handleChange}
+                        className="add_title"
+                        placeholder="Post title (is Required)"
+                        value={this.state.title}
+                    /></div>
                     <div>
                         <span>Post Img</span>
                         <input type="url"
@@ -113,12 +113,12 @@ class Add extends React.Component {
                     <div>
                         <span>Post Text</span>
                         <textarea
-                            id="bigText"
-                            onChange={this.handleChange}
-                            className="add_text"
-                            placeholder="Post Text (is Required)"
-                            value={this.state.fullText}
-                        /></div>
+                        id="bigText"
+                        onChange={this.handleChange}
+                        className="add_text"
+                        placeholder="Post Text (is Required)"
+                        value={this.state.fullText}
+                    /></div>
                     <label className="add_terms_and_cond">
                         <input type="checkbox"
                                onChange={this.handleCheckboxChange}/>

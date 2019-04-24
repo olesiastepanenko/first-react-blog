@@ -1,66 +1,56 @@
 import React from 'react';
-import NewsCategory from "./NewsCategory";
-import carLogoLoader from './Logoimages'
+import {Route, Link, Switch} from 'react-router-dom'
+import BrandCategory from "./BrandCategory";
 import '../News.css';
-// import { Route, Link } from 'react-router-dom'
+import {bannerNewsImgDivStyle} from '../Constatns'
 
-// import {Router, Route, Link, RouteHandler} from 'react-router';
-const bannerNewsImg = require('../images/newsBack.jpg');
-const bannerNewsImgDivStyle = {
-    top: '0',
-    left: '0',
-    right: '0',
-    bottom: '0',
-    // minWidth: '100vw',
-    height: '300px',
-    zIndex: '1',
-    display: 'block',
-    // position: 'absolute',
-    marginBottom: '50px',
-    backgroundImage: `url(${bannerNewsImg})`,
-    backgroundSize: 'cover',
-    transition: '0.5s ease all',
+const BrandLogosAPI ={
+    logos: [
+        { id: 0, name: 'BMW', src: require('../images/logo/bmw.jpg')},
+        { id: 1, name: 'Ford', src: require('../images/logo/ford.jpg') },
+        { id: 2, name: 'Mazda', src: require('../images/logo/mazda.jpg')},
+        { id: 3, name: 'Mercedes', src: require('../images/logo/mercedes.jpg') },
+        { id: 4, name: 'Peugeot', src: require('../images/logo/peugeot.jpg')},
+        { id: 5, name: 'Skoda', src: require('../images/logo/skoda.jpg')},
+        { id: 6, name: 'Toyota', src: require('../images/logo/toyota.jpg')},
+    ],
+
+
+    all: function () {return this.logos;},
+    get: function(b) {
+        const isBrandlogo = p => p.id === b;
+        return this.logos.find(isBrandlogo)
+    },
 
 };
+export {BrandLogosAPI}
 
 
-class News extends React.Component{
-    state = {
-        logos: []
-    };
-    async componentDidMount() {
-        this._isMounted = true;
-        const logos = carLogoLoader();
-        this.setState({logos})
-    };
-    componentWillUnmount () {
-        this._isMounted = false;
-    };
-    // renderCetegory = () => {
-    //     let brandsTemplate;
-    //     if (log.length) {
-    //         brandsTemplate = data.map(function (brand) {
-    //             <image ></image>
-    //         })
-    //
-    //     }
-    //
-    // };
-render() {
-        const {logos} = this.state;
-    return (
-        <React.Fragment>
-            <div className="back-img" style={bannerNewsImgDivStyle}/>
-            <div className="content-wrapper">
-                <h1>New cars in 2019</h1>
-                <div className="brands">
-                    {logos.map(({id, name, src}) => <img className="car-logo" key={id} id={name} src={src} alt={name}/>)}
-                </div>
-            </div>
-        </React.Fragment>
 
-    )
-}
-}
+// The Roster component matches one of two different routes
+// depending on the full pathname
+const News = () => (
+    <Switch>
+        <Route exact path='/news' component={FullNews}/>
+        <Route exact path='/news/:id' component={BrandCategory}/>
+    </Switch>
+);
 
-export default News
+
+
+const FullNews = () => (
+    <React.Fragment>
+        <div className="back-img" style={bannerNewsImgDivStyle}/>
+        <div className="list-imgs">
+            {
+                BrandLogosAPI.all().map(b => (
+                    <div className="cont-img" key={b.id}>
+                        <Link to={`/news/${b.id}`}><img className="car-logo" src={b.src} alt={b.name}/></Link>
+                    </div>
+                ))
+            }
+        </div>
+    </React.Fragment>
+);
+export {News}
+

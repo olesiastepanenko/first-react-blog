@@ -1,7 +1,6 @@
 import React from 'react';
 import {Add} from "./Add";
 import {BlogPosts} from "./BlogPosts";
-import {bannerImgDivStyle} from '../Constatns'
 
 // import postsData from '../public/data/postsData.json'
 
@@ -43,7 +42,22 @@ import {bannerImgDivStyle} from '../Constatns'
 //     },
 // ];
 
+const bannerImg = require('../images/banner.jpg');
+const bannerImgDivStyle = {
+    top: '0',
+    left: '0',
+    right: '0',
+    // minWidth: '100%',
+    height: '300px',
+    zIndex: '1',
+    display: 'block',
+    // position: 'absolute',
+    marginBottom: '50px',
+    backgroundImage: `url(${bannerImg})`,
+    backgroundSize: 'cover',
+    transition: '0.5s ease all',
 
+};
 
 class Blog extends React.Component {
     state = {

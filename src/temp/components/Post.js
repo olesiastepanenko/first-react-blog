@@ -19,16 +19,16 @@ class Post extends React.Component {
             <div className="article">
                 <div className="post_title"><span>{title}</span><span className="post_date">{date}</span></div>
                 <img className="post_img" src={src} alt={title}/>
-                <p className="post_text">{text}</p>
-                {/* if not visible - show */
-                    !visible &&
-                    <a onClick={this.handleReadMoreClck} href="#Read more" className="post_read_more">Read more</a>
-                }
-                {/* if visible than show */
-                    visible && <p className="post_big-text">{bigText}</p>
-                }
+                    <p className="post_text">{text}</p>
+                    {/* if not visible - show */
+                        !visible &&
+                        <a onClick={this.handleReadMoreClck} href="#Read more" className="post_read_more">Read more</a>
+                    }
+                    {/* if visible than show */
+                        visible && <p className="post_big-text">{bigText}</p>
+                    }
                 <div className="post_info">
-                    <span className="post_author"> Posted by: {author}</span>
+                <span className="post_author"> Posted by: {author}</span>
                 </div>
             </div>
         )

@@ -12,9 +12,9 @@ class BlogPosts extends React.Component {
 
         if (data.length) {//if is Published -  map
 
-            postTemplate = data.map(function (item) {
-                return <Post key={item.id} data={item} pimg={item.src}/>
-            })
+                postTemplate = data.map(function (item) {
+                    return <Post key={item.id} data={item} pimg={item.src}/>
+                })
             // }
         } else {
             postTemplate = <p>The are no post!!!</p>
@@ -29,7 +29,7 @@ class BlogPosts extends React.Component {
             <div className="post">
                 {this.renderPost()}
                 <p className={data.length > 0 ? '':"none"}>
-                    Post articles: {data.length}</p>
+                Post articles: {data.length}</p>
             </div>
         )
     }
