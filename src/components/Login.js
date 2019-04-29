@@ -33,7 +33,7 @@ class Login extends React.Component{
     render() {
         return (
             <React.Fragment>
-                <img src={require('../images/expensive-British.jpg')} alt="Back img"/>
+                <img className="full_page_img" src={require('../images/expensive-British.png')} alt="Back img"/>
                 <form className="login_form">
                     <div className={`login_feld ${(this.state.hello === "welcome") ? "welcome" : (this.state.hello === "error") ? "error" : ""}`}>
                         <input
