@@ -211,3 +211,16 @@ div.active div.back-img {
   color: #666;
   font-size: 16px;
 }
+
+/*   ---  LOGIN  ---   */
+.login_form {
+  padding-top: 100px;
+  z-index: 1;
+}
+.login_feld.welcome {
+  background-color: greenyellow;
+}
+.login_feld.error {
+  background-color: red;
+
+}

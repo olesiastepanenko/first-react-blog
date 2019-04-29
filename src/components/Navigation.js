@@ -5,6 +5,7 @@ import {News} from './News'
 import Blog from "./Blog";
 import Login from "./Login";
 
+
 // The Header creates links, navigate
 // between routes.
 
@@ -12,7 +13,7 @@ const NavRouter = () => (
     <header>
                 <div className="head" id="navigation">
                     <div className="logo">
-                        <Link to='/'>
+                        <Link to='/news'>
                             <img src={logo} alt='logo'/>
                         </Link>
                     </div>
@@ -44,5 +45,5 @@ const MainContent = () => (
             <Route path='/login' component={Login}/>
         </Switch>
     </React.Fragment>
-)
+);
 export {MainContent}

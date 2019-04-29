@@ -44,7 +44,7 @@ class Add extends React.Component {
         // clear input in addFrom
         this.setState({name: '', title: '', fullText: '', src: ''});
         // Scroll to Post after add new Post
-        Scroll.animateScroll.scrollTo(300);
+        Scroll.animateScroll.scrollTo(250);
 
     };
 
@@ -79,7 +79,7 @@ class Add extends React.Component {
     render() {
         return (
             <div className="add">
-                <form className="add-form" onSubmit={this.handleSubmit}>
+                <form className="add-form" >
                     <div>
                         <span>Author Name</span>
                         <input
